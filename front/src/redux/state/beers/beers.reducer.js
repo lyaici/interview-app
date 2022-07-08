@@ -3,7 +3,8 @@ import { BeerActionTypes } from "./beers.model";
 const defaultBeersState = {
   items: [],
   newItems: [],
-  loading: false
+  loading: false,
+  updatedItem: {}
 };
 export const beersReducer = (state = defaultBeersState, action) => {
   switch (action.type) {
@@ -16,6 +17,8 @@ export const beersReducer = (state = defaultBeersState, action) => {
       return { ...state, loading: false };
     case BeerActionTypes.BEERS_SET_NEW:
       return { ...state, newItems: [...state.newItems, action.beer] };
+    case BeerActionTypes.BEERS_SET_RATE_SUCCESS:
+      return { ...state, updatedItem: action.updatedItem };
     default:
       return state;
   }

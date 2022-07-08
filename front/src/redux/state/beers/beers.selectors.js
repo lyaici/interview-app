@@ -1,6 +1,7 @@
-export const beerItemsSelector = state => state.beers.items;
+export const beerItemsSelector = ({ beers: { items, updatedItem } }) =>
+  items.map((item) => (item.uuid === updatedItem.uuid ? updatedItem : item));
 
-export const allBeersSelector = state => [
+export const allBeersSelector = (state) => [
   ...beerItemsSelector(state),
-  ...state.beers.newItems
+  ...state.beers.newItems,
 ];

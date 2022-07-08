@@ -1,12 +1,13 @@
 import { put, call, takeEvery, select } from "redux-saga/effects";
 import history from "../../../history";
-import { getBeers, postBeer } from "./beers.api";
+import { getBeers, postBeer, postBeerRate } from "./beers.api";
 import {
   fetchBeers,
   fetchBeersFailure,
   fetchBeersSuccess,
+  setBeerRateSuccess,
   setBeers,
-  setNewlyCreatedBeer
+  setNewlyCreatedBeer,
 } from "./beers.actions";
 import { BeerActionTypes } from "./beers.model";
 import { beerItemsSelector } from "./beers.selectors";
@@ -50,4 +51,17 @@ function* createBeersWorker({ beer }) {
 
 export function* createBeersWatcher() {
   yield takeEvery(BeerActionTypes.BEERS_CREATE, createBeersWorker);
+}
+
+function* setBeerRateWorker({ uuid, score }) {
+  try {
+    const { data } = yield call(postBeerRate, uuid, { score });
+    yield put(setBeerRateSuccess(data));
+  } catch (e) {
+    yield put(fetchBeersFailure());
+  }
+}
+
+export function* setBeerRateWatcher() {
+  yield takeEvery(BeerActionTypes.BEERS_SET_RATE, setBeerRateWorker);
 }
