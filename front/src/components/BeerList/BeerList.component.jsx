@@ -1,4 +1,5 @@
 import React from "react";
+// import BeerItem from "../BeerItem/BeerItem.container";
 import { BeerItem } from "../BeerItem";
 import { Loader } from "../Loader";
 
