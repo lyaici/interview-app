@@ -3,6 +3,7 @@ import axios from "axios";
 
 import styles from "./BeerItem.module.scss";
 import { Rate } from "./Rate/Rate";
+import RenderCount from "../RenderCount/RenderCount.component";
 // import { store } from "../../redux";
 // import { setBeers } from "../../redux/state/beers";
 
@@ -36,6 +37,9 @@ export const BeerItem = ({ beer }) => {
       <div className={styles.ibu}>IBU: {newBeer.ibu}</div>
       <div className={styles.score}>Score: {newBeer.score.toPrecision(1)}</div>
       <div className={styles.nbRate}>Nb. rate: {newBeer.nbRate}</div>
+      <div className={styles.renderCount}>
+        <RenderCount />
+      </div>
       <div className={styles.rate}>
         <Rate onRate={onRate} />
       </div>
