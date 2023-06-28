@@ -1,33 +1,31 @@
-import React, { Component } from "react";
-import { Provider } from "react-redux";
-import { Router, Route } from "react-router-dom";
+import React from 'react'
+import { QueryClientProvider, QueryClient } from 'react-query'
+import { Router, Route } from 'react-router-dom'
+import history from './history'
+import { Header } from './components/Header'
+import List from './pages/list/List.component'
+import LazyBeerForm from './pages/form/Form.lazycomponent'
 
-import history from "./history";
-import { store } from "./redux";
-import { Header } from "./components/Header";
-import List from "./pages/list";
-import LazyBeerForm from "./pages/form";
+import './App.scss'
 
-import "./App.scss";
+// create a client
+const queryClient = new QueryClient()
 
-class App extends Component {
-  render() {
+// Since there is no state or any class-based component, we can use a function component.
+export default function App() {
     return (
-      <Provider store={store}>
-        <Router history={history}>
-          <div className="App">
-            <header className="App-header">
-              <Header />
-            </header>
-            <div className="App-content">
-              <Route path="/" exact component={List} />
-              <Route path="/new/" component={LazyBeerForm} />
-            </div>
-          </div>
-        </Router>
-      </Provider>
-    );
-  }
+        <QueryClientProvider client={queryClient}>
+            <Router history={history}>
+                <div className="App">
+                    <header className="App-header">
+                        <Header />
+                    </header>
+                    <div className="App-content">
+                        <Route path="/" exact component={List} />
+                        <Route path="/new/" component={LazyBeerForm} />
+                    </div>
+                </div>
+            </Router>
+        </QueryClientProvider>
+    )
 }
-
-export default App;
