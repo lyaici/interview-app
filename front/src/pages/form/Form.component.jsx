@@ -23,7 +23,7 @@ const BeerForm = () => {
         },
     })
 
-    function handleSubmit(values) {
+    function addBeer(values) {
         mutate(values) // To trigger @the mutation and then redirect to the home page
         history.push('/')
     }
@@ -48,7 +48,7 @@ const BeerForm = () => {
                     }
                     return errors
                 }}
-                onSubmit={(values) => handleSubmit(values)}
+                onSubmit={(values) => addBeer(values)}
             >
                 {({
                     values,

@@ -11,7 +11,7 @@ import './App.scss'
 // create a client
 const queryClient = new QueryClient()
 
-// Since there is no state or any class-based component, we can use a function component.
+// Since there is no state or any class-based functionnality, we can use a function component.
 export default function App() {
     return (
         <QueryClientProvider client={queryClient}>
