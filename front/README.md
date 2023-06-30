@@ -5,8 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This app is build with the following libraries
 
 - [React](https://reactjs.org/)
-- [Redux](https://redux.js.org/)
-- [Redux-Saga](https://redux-saga.js.org/)
+- [React-Query](https://tanstack.com/query/v3/docs/react/overview)
 - [Axios](https://github.com/axios/axios)
 - [Sass](https://sass-lang.com/)
 
