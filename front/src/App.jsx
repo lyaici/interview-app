@@ -2,9 +2,9 @@ import React from 'react'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { Router, Route } from 'react-router-dom'
 import history from './history'
-import { Header } from './components/Header'
-import List from './pages/list/List.component'
-import LazyBeerForm from './pages/form/Form.lazycomponent'
+import Header from './components/Header/Header.component'
+import List from './pages/list/List'
+import LazyBeerForm from './pages/form/LazyBeerForm'
 
 import './App.scss'
 

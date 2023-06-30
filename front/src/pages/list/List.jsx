@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from 'react-query'
-import { BeerList } from '../../components/BeerList'
-import { Button } from '../../components/Button'
+import BeerList from '../../components/BeerList/BeerList.component'
+import Button from '../../components/Button/Button.component'
 import { getBeers } from '../../utils/helper'
 import styles from './List.module.scss'
 
