@@ -1,7 +1,7 @@
 import axios from 'axios'
 import endpoints from '../services/api'
 
-// Used to update a beer's score in the API through a post request
+// Used to rate a beer in the API through a post request
 const rateBeer = async ({ beerId, score }) => {
     const endpoint = endpoints.rateBeer(beerId)
     const data = { score }

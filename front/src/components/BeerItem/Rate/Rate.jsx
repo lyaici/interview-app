@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import styles from './Rate.module.scss'
 
@@ -18,7 +18,7 @@ const LEVELS = [
         value: 3,
     },
 ]
-export const Rate = ({ onRate }) => {
+const Rate = ({ onRate }) => {
     return (
         <div className={styles.rate}>
             {LEVELS.map(({ name, value }, index) => (
@@ -31,6 +31,7 @@ export const Rate = ({ onRate }) => {
         </div>
     )
 }
+export default memo(Rate) // We use memo to avoid re-rendering the component if the props are the same for better performance
 Rate.displayName = 'Rate'
 Rate.propTypes = {
     onRate: PropTypes.func,

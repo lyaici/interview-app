@@ -6,11 +6,11 @@ import { getBeers } from '../../utils/helper'
 import styles from './List.module.scss'
 
 const List = () => {
-    const { data: beers, isLoading: loading } = useQuery('beers', getBeers)
+    const { data: beers, isLoading, isError } = useQuery('beers', getBeers)
     return (
         <div>
             <div className={styles.list}>
-                <BeerList beers={beers} loading={loading} />
+                <BeerList beers={beers} loading={isLoading} error={isError} />
             </div>
             <div className={styles.addBeer}>
                 <Button type="link" to="/new/" text="Add a beer" />
