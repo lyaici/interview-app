@@ -9,23 +9,28 @@ import List from "./pages/list";
 import LazyBeerForm from "./pages/form";
 
 import "./App.scss";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <Router history={history}>
-          <div className="App">
-            <header className="App-header">
-              <Header />
-            </header>
-            <div className="App-content">
-              <Route path="/" exact component={List} />
-              <Route path="/new/" component={LazyBeerForm} />
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <Router history={history}>
+            <div className="App">
+              <header className="App-header">
+                <Header />
+              </header>
+              <div className="App-content">
+                <Route path="/" exact component={List} />
+                <Route path="/new/" component={LazyBeerForm} />
+              </div>
             </div>
-          </div>
-        </Router>
-      </Provider>
+          </Router>
+        </Provider>
+      </QueryClientProvider>
     );
   }
 }
