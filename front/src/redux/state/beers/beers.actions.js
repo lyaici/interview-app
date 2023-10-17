@@ -29,3 +29,15 @@ export const setNewlyCreatedBeer = beer => ({
   type: BeerActionTypes.BEERS_SET_NEW,
   beer
 });
+
+export const rateBeer = (beerId, score) => ({
+  type: BeerActionTypes.BEERS_RATE,
+  beerId,
+  score
+});
+
+export const setNewlyRateBeer = (beerId, score) => ({
+  type: BeerActionTypes.BEERS_SET_NEW_SCORE,
+  beerId,
+  score
+});
