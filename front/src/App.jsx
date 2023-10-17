@@ -9,6 +9,7 @@ import List from "./pages/list";
 import LazyBeerForm from "./pages/form";
 
 import "./App.scss";
+import RenderCounter from "./components/RenderCount";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <div className="App">
             <header className="App-header">
               <Header />
+              {process.env.NODE_ENV === "development" && <RenderCounter />}
             </header>
             <div className="App-content">
               <Route path="/" exact component={List} />

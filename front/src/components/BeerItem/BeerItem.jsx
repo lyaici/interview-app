@@ -16,7 +16,7 @@ export const BeerItem = React.memo(
       <div className={styles.rate}>
         <Rate onRate={onRate} beerId={uuid} />
       </div>
-      <RenderCounter />
+      {process.env.NODE_ENV === "development" && <RenderCounter />}
     </div>
   )
 );
