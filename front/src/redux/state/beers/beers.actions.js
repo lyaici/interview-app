@@ -25,6 +25,11 @@ export const createBeer = beer => ({
   beer
 });
 
+export const rateBeer = payload => ({
+  type: BeerActionTypes.BEERS_RATE,
+  payload
+});
+
 export const setNewlyCreatedBeer = beer => ({
   type: BeerActionTypes.BEERS_SET_NEW,
   beer

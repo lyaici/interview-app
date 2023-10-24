@@ -1,4 +1,4 @@
-FROM node:13.6.0-alpine as server
+FROM node:18.6.0 as server
 
 ENV NPM_CONFIG_LOGLEVEL warn
 
