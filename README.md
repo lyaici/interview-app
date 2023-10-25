@@ -13,6 +13,8 @@
 
 ## Retours sur le code - MCP
 
+Petit point d'attention : les pulls requests des autres candidats sont visibles publiquement. Je ne sais pas si c'est un soucis ou pas de votre côté mais je vous le remonte tout de même ;).
+
 ### 1è point : l'installation
 L'installation du projet s'est avérée compliquée. Ce n'est pas très important theoriquement parlant car c'est un projet de test mais il me semble tout de même nécessaire d'attirer l'attention sur certains points : 
 - En raison d'une version de node trop ancienne dans le Dockerfile, le conteneur ne parvient tout simplement pas à lancer le serveur koa (j'ai mis à jour sur mon fork). L'installation de Docker sur Windows est également parfois laborieuse (je suis familier avec mais tout les devs front n'auront pas le réflexe d'aller dans leur bios pour activer la virtualisation de leur CPU afin de pouvoir faire tourner le daemon docker).
@@ -38,6 +40,7 @@ Je vais fonctionner en bullet points, c'est plus lisible :
         - Ecriture de code plus rapide (on sait avec quelle donnée on travaille, on connait les objets avec précision)
         - Moins de bugs (erreur humaine détectée à la compilation, restriction saine des déclarations...)
         - Cablage plus facile avec le back ou certaines api extérieures. Ici on a la chance d'avoir un backend en javascript, c'est parfait pour avoir  un typage commun entre le back et le front.
+    - Pas de tests. Ni unitaires, ni d'integration, ni d'UI. Logique sur un tel projet test mais sur une base de code réelle c'est un vrai plus de prendre le temps de faire de bons tests, maintenables facilements. De la même manière que Typescript, cela rentre également dans une logique de volonté de scalabilité et de qualité.
     - Le linter est un eslint de base monté avec le creat-react-app. Je monte personnelement aujourd'hui toujours un eslint sur un ruleset airbnb avec les plugins react + jsxa11y  + typescript + prettier au minimum sur tout mes projets. Cela permet pour une équipe de travailler de façon plus homogène et d'avoir un outil de qualimétrie efficace, réduisant l'accumulation de dette technique.
     - Quelques points de détails : 
         - La granularité décimale du score d'une bière me semble devoir être au minimum à deux (score max à 10 ne pouvant être affiché et la méthode de calcul fait que garder un nombre entier ne reflète quasi pas les changement de rating)
