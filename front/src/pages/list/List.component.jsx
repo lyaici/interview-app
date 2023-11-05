@@ -4,6 +4,7 @@ import { BeerList } from "../../components/BeerList";
 import { Button } from "../../components/Button";
 
 import styles from "./List.module.scss";
+import { RenderCount } from "../../components/RenderCount";
 
 export const List = ({ beers, loading }) => (
   <div>
@@ -13,5 +14,6 @@ export const List = ({ beers, loading }) => (
     <div className={styles.addBeer}>
       <Button type="link" to="/new/" text="Add a beer" />
     </div>
+    <RenderCount />
   </div>
 );
