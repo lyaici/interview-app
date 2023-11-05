@@ -29,3 +29,18 @@ export const setNewlyCreatedBeer = beer => ({
   type: BeerActionTypes.BEERS_SET_NEW,
   beer
 });
+
+export const rateBeer = (uuid, rating) => ({
+  type: BeerActionTypes.BEER_RATE,
+  payload: { uuid, rating }
+});
+
+export const rateBeerSuccess = (beer) => ({
+  type: BeerActionTypes.BEER_RATE_SUCCESS,
+  payload: beer
+});
+
+export const rateBeerFailure = (error) => ({
+  type: BeerActionTypes.BEER_RATE_FAILURE,
+  payload: error
+});

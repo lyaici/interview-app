@@ -10,6 +10,9 @@ import {
 } from "./beers.actions";
 import { BeerActionTypes } from "./beers.model";
 import { beerItemsSelector } from "./beers.selectors";
+import { rateBeerApi } from "./beers.api";
+import { rateBeerSuccess, rateBeerFailure } from "./beers.actions";
+
 
 function* fetchBeersIfNotWorker() {
   const items = yield select(beerItemsSelector);
@@ -50,4 +53,19 @@ function* createBeersWorker({ beer }) {
 
 export function* createBeersWatcher() {
   yield takeEvery(BeerActionTypes.BEERS_CREATE, createBeersWorker);
+}
+
+function* rateBeerWorker({ payload }) {
+  try {
+    const { uuid, rating } = payload;
+    const ratedBeer = yield call(rateBeerApi, uuid, rating);
+    yield put(rateBeerSuccess(ratedBeer));
+    yield put(fetchBeers());
+  } catch (e) {
+    yield put(rateBeerFailure(e.message));
+  }
+}
+
+export function* rateBeerWatcher() {
+  yield takeEvery(BeerActionTypes.BEER_RATE, rateBeerWorker);
 }
