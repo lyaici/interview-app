@@ -7,9 +7,6 @@ import styles from "./List.module.scss";
 import { RenderCount } from "../../components/RenderCount";
 
 export const List = ({ beers, loading }) => {
-  useEffect(() => {
-    console.log("===> BEERS", beers);
-  });
 
   return (
     <div>

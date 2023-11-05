@@ -52,3 +52,26 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# **Analyse de la Codebase**
+
+## **Bonnes pratiques observées**
+
+La séparation claire entre les fichiers de l'interface utilisateur et ceux de la logique métier améliore la lisibilité du projet et en facilite la maintenance.
+Néanmoins cela augmente considérablement la taille de l'arborescence du projet.
+
+## **Axes d'améliorations**
+
+Renforcer la qualité et la maintenabilité du code avec l'utilisation de Typescript pour réduire les potentiels erreurs.
+
+Maintenir à jour les packages.
+
+Implémenter des tests unitaires. 
+
+## **Mauvaises pratiques observées**
+
+Pour un projet de petite envergure, il est souvent plus approprié d'utiliser le hook `useContext` pour la gestion de l'état global au lieu de mettre en place une solution plus complexe comme Redux. Cela permet de simplifier l'architecture et de réduire la surcharge.
+
+La liste de Beers se re-render plusieurs fois, enquêter sur les causes et si nécecssaire penser à l'utiliser de la la memoization.
+
+Il est recommandé d'implémenter le mode strict de React, qui peut nous aider à repérer les composants qui pourraient être à l'origine de comportements inattendus.
